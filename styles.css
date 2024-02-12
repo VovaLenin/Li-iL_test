@@ -1,0 +1,51 @@
+/* Стили для элементов дерева */
+.tree {
+  font-family: Arial, sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 20px;
+}
+
+.tree li {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.tree li ul {
+  padding-top: 5px;
+}
+
+/* Стили для галочки */
+.tree li::before {
+  content: "";
+  background-image: url("images/arrow.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+.tree .no-children::before {
+  content: "";
+  background-image: none;
+}
+
+/* Стили для открытого списка */
+.tree li.opened::before {
+  transform: rotate(90deg);
+}
+
+/* Стили для вложенных списков */
+.tree ul ul {
+  display: none;
+}
+
+/* Стили для открытых вложенных списков */
+.tree ul.opened {
+  display: block;
+}
